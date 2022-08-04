@@ -5,28 +5,16 @@ const port = process.env.PORT || 3000;
 const herokuApp = process.env.HEROKU_APP || null;
 const youtubeFetchTimeout = 900000;
 
-const youtubeApiKey = process.env.YOUTUBE_API_KEY;
+const youtubeApiKey = AIzaSyD7Uz5rchQA1_5HdGqLiFPwwgR1tDQ1Fd0;
 const youtubeApiUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&eventType=live&type=video';
-const discordApiKey = process.env.DISCORD_API_KEY;
-const discordApiUrl = `https://discordapp.com/api/webhooks/${discordApiKey}`;
+const discordApiKey = 1004811901508800542;
+const discordApiUrl = `https://discord.com/api/webhooks/1003319557294936065/mb0CY3vjgB734dx3vkUZmwusAHZvpz03U0VAFe-zrCMi67f5XH9GsfZ_SWp0sUVGJ5I3`;
 
 const youtubeChannels = [
     {
-        channelId: 'UCjWk_VRIThkP0fc0A32W2pA',
-        channelUrl: 'https://www.youtube.com/channel/UCjWk_VRIThkP0fc0A32W2pA'
+        channelId: 'UCt54WBGAbWHFBfBBQWVdxFQ',
+        channelUrl: 'https://studio.youtube.com/channel/UCt54WBGAbWHFBfBBQWVdxFQ'
     },
-    {
-        channelId: 'UCqSqR9Jvs3vg7ca40AXQVlA',
-        channelUrl: 'https://www.youtube.com/channel/UCqSqR9Jvs3vg7ca40AXQVlA'
-    },
-    {
-        channelId: 'UCbQJCNOoBuTOob7W-wXX4Ng',
-        channelUrl: 'https://www.youtube.com/channel/UCbQJCNOoBuTOob7W-wXX4Ng'
-    },
-    {
-        channelId: 'UCLReV54sPZ_oXMEwarxItLA',
-        channelUrl: 'https://www.youtube.com/channel/UCLReV54sPZ_oXMEwarxItLA'
-    }
 ];
 
 let activeLiveStreams = new Set();
@@ -51,7 +39,7 @@ async function fetchLiveStreamStatus() {
                         const discordObj = {
                             username: 'Dumpster LIVE',
                             avatar_url: 'https://yt3.ggpht.com/a/AGF-l7__zvPRgglwpeA85-NPjkxRlhi46IG3wKdwKg=s288-c-k-c0xffffffff-no-rj-mo',
-                            content: `Richlife is LIVE. **${element.snippet.title}**. Channel: ${youtubeChannel.channelUrl}`
+                            content: `@everyone**${element.snippet.title}**. Channel: ${youtubeChannel.channelUrl}`
                         }
                         postToDiscord(discordObj);
                     } else {
